@@ -173,10 +173,10 @@ new WebSocketServer({
     autoAcceptConnections: false
 }).on('request', onRequest);
 
-app.listen(process.env.PORT || 9449);
+app.listen(443);
 
 process.on('unhandledRejection', (reason, promise) => {
     process.exit(1);
 });
 
-console.log('Please open SSL URL: https://localhost:' + (process.env.PORT || 9449) + '/');
+console.log('Please open SSL URL: https://localhost:' + (443) + '/');
