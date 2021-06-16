@@ -20,7 +20,7 @@ var options = {
 };
 
 // HTTPs server
-var app = require('https').createServer(options, function (request, response) {
+var app = require('http').createServer(options, function (request, response) {
     response.writeHead(200, {
         'Content-Type': 'text/html'
     });
@@ -173,10 +173,10 @@ new WebSocketServer({
     autoAcceptConnections: false
 }).on('request', onRequest);
 
-app.listen(443);
+app.listen(process.env.PORT || 9449);
 
 process.on('unhandledRejection', (reason, promise) => {
     process.exit(1);
 });
 
-console.log('Please open SSL URL: https://localhost:' + (443) + '/');
+console.log('Please open SSL URL: https://localhost:' + (process.env.PORT || 9449) + '/');
